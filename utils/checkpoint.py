@@ -2,7 +2,7 @@ import torch
 
 def save(epoch, model, optim, loss, path):
     """
-    Writes model checkpoint to given path
+    Writes model checkpoint to given location
     
     Args:
         epoch: integer representing current training epoch
@@ -26,7 +26,7 @@ def save(epoch, model, optim, loss, path):
 
 def load(model, optimizer, path):
     """
-    Reads checkpoint from given location
+    Reads model checkpoint from given location
 
     Args:
         model: pytorch model
@@ -35,7 +35,7 @@ def load(model, optimizer, path):
     
     Returns:
         model_state_dict: learned model parameters
-        optimizer_state_dict: learned optimizer parameters:
+        optimizer_state_dict: learned optimizer parameters
         epoch: last epoch saved
         loss: loss during epoch
 
