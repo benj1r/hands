@@ -1,9 +1,9 @@
 import numpy as np
-import cv2
+from scipy.stats import multivariate_normal
 
-def heatmap_transform(pt, h, w):
+def heatmap_transform(pts, h, w):
     """
-    Transforms 2D point to 2D gaussian heatmap 
+    Transforms point to heatmap 
 
     Args:
         pt: two-dimensional joint coordinate
@@ -11,11 +11,18 @@ def heatmap_transform(pt, h, w):
     Returns:
         normalized output heatmap as 2D numpy array
     """
-    pass
+    maps = []
+    for pt in pts:
+        pos = np.dstack(np.mgrid[0:h:1,0:w:1])
+
+        rv = multivariate_normal(mean=[pt[1],pt[0]],cov=h//8)
+        
+        maps.append(rv.pdf(pos))
+    return np.array(maps, dtype=np.float32)
 
 def generate_patch(img):
+    """
+    Transforms 
+    """
     pass
 
-def transform_point(pt, trans):
-    pass
-    
