@@ -5,8 +5,10 @@ class Config():
     root_dir = osp.join(osp.dirname(osp.abspath(__file__)),'..')
     data_dir = osp.join(root_dir, 'data')
     
-    height = 512
-    width = 512
+    height = 128
+    width = 128
+    
+    s = 3
 
 config = Config()
 
