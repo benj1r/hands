@@ -38,8 +38,10 @@ def generate_patch(img, bbox):
         bbox: bounding box of joint coordinates
 
     Returns:
-        Transformed image
+        patch: transformed image
+        trans: affine transformation matrix
     """
+
     h, w = img.shape
     
     bbox_center_x = float(bbox[0] + 0.5*bbox[2])
