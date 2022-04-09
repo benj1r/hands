@@ -89,7 +89,6 @@ class Dataset(torch.utils.data.Dataset):
         
         # targets
         joint = data['joint']
-        joint_cam = joint['cam_coord']
         joint_img = joint['img_coord']
         bbox = data['bbox']
         
@@ -101,12 +100,11 @@ class Dataset(torch.utils.data.Dataset):
         img = self.transform(img.astype(np.float32)) / 255.0
         joint = self.transform(joint_img.astype(np.float32))
         joint = torch.squeeze(joint)
-
         joint = heatmap_transform(joint, config.height, config.width)
         
         inputs = img
         targets = joint
         
-        return inputs.squeeze(), targets.squeeze()
+        return inputs, targets
 
 
