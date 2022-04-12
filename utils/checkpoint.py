@@ -17,7 +17,7 @@ def save(epoch, model, optim, loss, path):
     torch.save({
         'epoch': epoch,
         'model_state_dict': model.state_dict(),
-        'optimizer_state_dict': optimizer.state_dict(),
+        'optimizer_state_dict': optim.state_dict(),
         'loss': loss
         }, path)
 
