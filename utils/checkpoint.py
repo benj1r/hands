@@ -24,19 +24,17 @@ def save(epoch, model, optim, loss, path):
     print(f'checkpoint saved at {path}.')
 
 
-def load(model, optimizer, path):
+def load(path):
     """
     Reads model checkpoint from given location
 
     Args:
-        model: pytorch model
-        optimizer: pytorch optimizer
         path: location to read checkpoint
     
     Returns:
+        epoch: last epoch iteration
         model_state_dict: learned model parameters
         optimizer_state_dict: learned optimizer parameters
-        epoch: last epoch saved
         loss: loss during epoch
 
     """
@@ -52,5 +50,5 @@ def load(model, optimizer, path):
 
     print('checkpoint loaded.')
 
-    return model_state_dict, optimizer_state_dict, epoch, loss
+    return epoch, model_state_dict, optimizer_state_dict, loss
 
